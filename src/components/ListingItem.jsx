@@ -25,7 +25,6 @@ export default function ListingItem({listing, id, onDelete, onEdit}) {
             .toString()
             .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
             : listing.regularPrice.toString()
-            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
             }
             {listing.type === "rent" && "/ month" }
             </p>
@@ -40,13 +39,13 @@ export default function ListingItem({listing, id, onDelete, onEdit}) {
           </div>
       </Link>
       {onDelete && (
-        <FaTrash  className='absolute bottom-2 right-2 h-[14px] 
-        cursor-pointer text-red-500' onClick={()=>onDelete(listing.id)}/>
+        <FaTrash  className="absolute bottom-2 right-2 h-[14px] 
+        cursor-pointer text-red-500" onClick={()=>onDelete(listing.id)}/>
         
       )}
-      {onEdit && (
-        <MdEdit  className='absolute bottom-2 right-7 h-4 
-        cursor-pointer' onClick={()=>onEdit(listing.id)}/>
+     {onEdit && (
+        <MdEdit  
+        className='absolute bottom-2 right-7 h-4 cursor-pointer' onClick={()=>onEdit(listing.id)}/>
         
       )}
     </li>
