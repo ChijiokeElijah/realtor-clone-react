@@ -70,7 +70,7 @@ export default function Slider() {
        bg-[#e63946] shadow-lg opacity-90 p-2 rounded-tr-3xl'>${data.discountedPrice ?? data.regularPrice
         .toString()
             .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-       {data.type === "rent" && ". month"}
+       {data.type === "rent" && " / month"}
        </p>
 
     </SwiperSlide>
