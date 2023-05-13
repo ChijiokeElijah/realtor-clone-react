@@ -14,7 +14,7 @@ export default function Slider() {
     const [listings, setListings] = useState(null)
   const [loading, setLoading] = useState(true)
   SwiperCore.use([Autoplay, Navigation, Pagination])
-  const navigate = useNavigate;
+  const navigate = useNavigate();
   useEffect(()=>{
     async function fetchListings(){
       const listingsRef = collection(db, "listings")
@@ -23,7 +23,7 @@ export default function Slider() {
       let listings = [];
       querySnap.forEach((doc) => {
         return listings.push({
-          id: doc.data(),
+          id: doc.id,
           data: doc.data(),
         });
       });
@@ -52,8 +52,10 @@ export default function Slider() {
  
  >
  {listings.map(({data, id})=>(
-    <SwiperSlide key={id} onClick={()=>navigate
-    (`/category/${data.type}/${id}`)}>
+    <SwiperSlide 
+    key={data.id} 
+    onClick={()=> navigate(`/category/${data.type}/${id}`)
+    }>
       
       <div 
       style={{
